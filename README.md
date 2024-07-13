@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Active Nav with RSC
 
-## Getting Started
+https://github.com/user-attachments/assets/295ae178-e717-48d7-a4f2-20eac03d82ff
 
-First, run the development server:
+We don't need to `use client` to achieve this. Let's do it with CSS `:has`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Note the `id` on `main`:
+
+```javascript
+export default function Home() {
+  return (
+    <main
+      id="home"
+      className="flex min-h-screen flex-col items-center justify-between p-24 text-4xl"
+    >
+      <h1>Home</h1>
+    </main>
+  );
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The following `CSS` will find the element with `id="home` and _from the root_ match the sidebar link with the home href and color it red.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```css
+:has(#home) aside a[href="/"]
+  color: red;
+}
+```
