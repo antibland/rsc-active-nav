@@ -1,10 +1,10 @@
-export default function Home() {
+export default function Contact() {
   return (
     <main
-      id="home"
+      id="contact"
       className="flex min-h-screen flex-col items-center justify-between p-24 text-4xl"
     >
-      <h1>Home</h1>
+      <h1>Contact</h1>
     </main>
   );
 }

@@ -26,6 +26,12 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+:has(#home) aside a[href="/"],
+:has(#about) aside a[href="/about"],
+:has(#contact) aside a[href="/contact"] {
+  color: red;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
